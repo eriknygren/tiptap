@@ -11,11 +11,13 @@ export const useEditor = (options: Partial<EditorOptions> = {}) => {
   })
 
   onBeforeUnmount(() => {
-    // Cloning root node (and its children) to avoid content being lost by destroy
-    const nodes = editor.value?.options.element
-    const newEl = nodes?.cloneNode(true) as HTMLElement
+    if (false) {
+      // Cloning root node (and its children) to avoid content being lost by destroy
+      const nodes = editor.value?.options.element
+      const newEl = nodes?.cloneNode(true) as HTMLElement
 
-    nodes?.parentNode?.replaceChild(newEl, nodes)
+      nodes?.parentNode?.replaceChild(newEl, nodes)
+    }
 
     editor.value?.destroy()
   })
